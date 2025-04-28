@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/css/aos.css" />
     <link rel="stylesheet" href="assets/css/line-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
   </head>
   <body data-bs-spy="scroll" data-bs-target=".navbar">
     <div id="tsparticles"></div>
@@ -18,66 +20,59 @@
       <p>PS: I’m also good at chess, sudoku, and reading books when not running marathons or pitching business ideas 💼🏃‍♀️📚</p>
     </div>
     <!-- NAV BAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container flex-lg-column">
-        <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
-          <span class="fw-bold h3 d-block d-lg-none"><b>Anisha</b> kumari</span>
-          
-          <img
-          
-            src="assets/images/PHOTO-2025-04-06-00-45-42.jpeg"
-            class="d-none d-lg-block rounded-circle profilepic"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#home"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#services"
-                >Services</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#work"
-                >Work</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#about"
-                >About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#reviews"
-                >Reviews</a
-              >
-            </li>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- //NAV BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top d-none d-lg-flex">
+  <div class="container flex-lg-column">
+    <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+      <span class="fw-bold h3 d-block d-lg-none"><b>Anisha</b> kumari</span>
+      <br><br><br><br><br>
+      <img
+        src="assets/images/PHOTO-2025-04-06-00-45-42.jpeg"
+        class="d-none d-lg-block rounded-circle profilepic"
+      />
+    </a>
+
+    <!-- Removed the mobile hamburger button -->
+
+    <div class="collapse navbar-collapse show" id="navbarNav">
+      <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#reviews">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#work">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#about">Space</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <br><br><br><br>
+
+  <!-- Portfolio Pet -->
+  <div id="pet-container" class="d-flex align-items-center mt-4 position-relative" style="overflow: visible;">
+    <div style="position: relative;">
+      <img id="pet-avatar" src="assets/images/pet-running.gif" alt="Portfolio Pet" style="height: 60px; cursor: pointer;">
+      <div id="grass-shadow"></div> <!-- NEW: Green shadow -->
+    </div>
+    <div id="water-count" class="ms-2 small"></div>
+    <button id="water-btn" class="btn btn-sm btn-light ms-2">🍓</button>
+    <canvas id="confetti-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
+  </div>
+  
+
+</nav>  
+<!-- //NAV -->
+
 
     <!-- CONTENT WRAPPER -->
     <div id="content-wrapper">
@@ -89,7 +84,11 @@
           <div class="social-icons col-auto">
             <a href="https://www.linkedin.com/in/yesanisha/"><i class="lab la-linkedin-in"></i></a>
             <a href="https://github.com/yesanisha"><i class="lab la-github"></i></a>
+            <a href="https://www.behance.net/whyanishadesigns"><i class="lab la-behance"></i></a>
+
+
           </div>
+          <br>
           <div class="row">
             <div class="col-lg-10">
               <h1 class="text-uppercase display-4 fw-bold" data-aos="fade-up">
@@ -187,6 +186,32 @@
         </div>
         </section>
       <!-- //SERVICES -->
+        <!-- Experience -->
+      <section id="reviews" class="full-hight px-lg-5">
+        <div class="container gy-4">
+          <div class="row p-4">
+            <div class="col-md-8" data-aos="fade-up">
+              <h6>Work Experience</h6>
+              <h1>Clients and companies</h1>
+            </div>
+
+            <div class="row gy-3 h6">
+              <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 shadow-effect bg-base py-4 rounded-4">
+                  <p>
+                  </p>
+                  <div class="person">
+                    <h3>UI/UX Dev</h3>
+                    <a href="https://www.wrexa.com/">Wrexa Technologies</a>
+                  </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- //REVIEWS -->
+
 
       <!-- WORK -->
 <section id="work" class="full-hight px-lg-5">
@@ -208,10 +233,9 @@
             <img src="" class="rounded-4" />
           </div>
           <div class="card-content p-3">
-            <h4>MovieTime</h4>
-            <p class="text-white">
-              A movie recommendation application using Kotlin, database for login view and tmdb API for recommendations
-            </p>
+            <h4>In Progress</h4>
+            <p class="text-Black">
+tbd            </p>
             <div id="github-langs-1" class="mb-2"></div>
             <a href="https://github.com/yesanisha/fruitful-food-tracker" target="_blank" class="custom-link me-3">View on GitHub</a>
             <a href="https://your-live-demo-link.com" target="_blank" class="custom-link">Live Demo</a>
@@ -226,10 +250,9 @@
             <img src="" class="rounded-4" />
           </div>
           <div class="card-content p-3">
-            <h4>Fruitful Food Tracker</h4>
-            <p class="text-white">
-              Track your meals, stay mindful, and build better food habits — powered by Kotlin, Firebase, and love 🥰
-            </p>
+            <h4>In progress</h4>
+            <p class="text-Black">
+tbd            </p>
             <div id="github-langs-2" class="mb-2"></div>
             <a href="https://github.com/yesanisha/fruitful-food-tracker" target="_blank" class="custom-link me-3">View on GitHub</a>
             <a href="https://your-live-demo-link.com" target="_blank" class="custom-link">Live Demo</a>
@@ -237,23 +260,8 @@
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <!-- <div class="col-md-4" data-aos="fade-up">
-        <div class="bg-base p-3 rounded-4 shadow-effect small-card">
-          <div class="img rounded-4">
-            <img src="" class="rounded-4" />
-          </div>
-          <div class="card-content p-3">
-            <h4>tbd</h4>
-            <p class="text-white">
-              Track your meals, stay mindful, and build better food habits — powered by Kotlin, Firebase, and love 🥰
-            </p>
-            <div id="github-langs-3" class="mb-2"></div>
-            <a href="https://github.com/yesanisha/fruitful-food-tracker" target="_blank" class="custom-link me-3">View on GitHub</a>
-            <a href="https://your-live-demo-link.com" target="_blank" class="custom-link">Live Demo</a>
-          </div>
-        </div>
-      </div> -->
+
+
     </div>
   </div>
 </section>
@@ -303,40 +311,7 @@
       </section>
       <!-- //ABOUT -->
 
-      <!-- REVIEWS -->
-      <section id="reviews" class="full-hight px-lg-5">
-        <div class="container gy-4">
-          <div class="row p-4">
-            <div class="col-md-8" data-aos="fade-up">
-              <h6>REVIEWS</h6>
-              <h1>Clients I have worked with</h1>
-            </div>
-
-            <div class="row gy-3 h6">
-              <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-4 shadow-effect bg-base py-4 rounded-4">
-                  <div class="stars rounded-4 mb-3">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </div>
-                  <p>
-                    "Anisha is very passionate, she worked on project with us. Nailed it!"
-                  </p>
-                  <div class="person">
-                    <h3>Felix</h3>
-                    <p>Alter, France</p>
-                  </div>
-            
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- //REVIEWS -->
-
+     
       <!-- CONTACT -->
       <section id="contact" class="full-hight px-lg-5">
         <div class="container gy-4">
@@ -409,7 +384,7 @@
         <div class="container m-4">
           <div class="row justify-content-between gy-4">
             <div class="col-auto mb-0">
-             <i> <p>Made with 🥰 Anisha</p></i>
+             <i> <p>Love, Anisha</p></i>
             </div>
             
           </div>
@@ -422,5 +397,6 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/aos.js"></script>
     <script src="assets/js/main.js"></script>
+
   </body>
 </html>

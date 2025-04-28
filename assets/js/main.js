@@ -196,4 +196,53 @@ tsParticles.load("tsparticles", {
   });
 
 
+// pet code
 
+
+const pet = document.getElementById('pet-avatar');
+const waterButton = document.getElementById('water-btn');
+const waterCountElement = document.getElementById('water-count');
+const confettiCanvas = document.getElementById('confetti-canvas');
+
+// Initialize water count
+let waterCount = localStorage.getItem('water-count') || 0;
+waterCountElement.textContent = `Watered ${waterCount}x`;
+
+// Setup confetti
+const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
+
+// Water button event
+waterButton.addEventListener('click', () => {
+  waterCount++;
+  localStorage.setItem('water-count', waterCount);
+  waterCountElement.textContent = `Watered ${waterCount}x`;
+
+  // Confetti fire inside the pet-container only
+  myConfetti({
+    particleCount: 100,
+    spread: 90,
+    origin: { y: 1.5, x: 0.5 }
+  });
+
+  // Pet animation change
+  pet.src = 'assets/images/pet-cute.gif';
+  setTimeout(() => {
+    pet.src = 'assets/images/pet-running.gif';
+  }, 2000);
+});
+
+// Hover effects
+pet.addEventListener('mouseover', () => {
+  pet.src = 'assets/images/pet-hover.gif';
+});
+pet.addEventListener('mouseout', () => {
+  pet.src = 'assets/images/pet-running.gif';
+});
+
+// Random yawn
+setInterval(() => {
+  pet.src = 'assets/images/pet-yawn.gif';
+  setTimeout(() => {
+    pet.src = 'assets/images/pet-running.gif';
+  }, 5000);
+}, 20000);
